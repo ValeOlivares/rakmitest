@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   resource :home, only: [:show]
   resources :requests do
     resources :comments
+      member do
+        put :like
+        put :dislike
+    end
   end
   
   root to: "requests#index"

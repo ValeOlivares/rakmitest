@@ -41,6 +41,7 @@ gem 'pry', '~> 0.12.2'
 gem 'trix-rails', require: 'trix'
 gem 'jquery-rails'
 gem "font-awesome-rails"
+gem 'acts_as_votable'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

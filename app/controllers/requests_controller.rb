@@ -22,6 +22,18 @@ class RequestsController < ApplicationController
       redirect_to requests_url
     end
   end
+
+  def like
+    @request= Request.find(params[:id])
+    @request.upvote_by(current_user)
+    redirect_to requests_url
+  end
+
+  def unlike
+    @request= Request.find(params[:id])
+    @request.downvote_by(current_user)
+    redirect_to :back
+  end
   
   private
 
