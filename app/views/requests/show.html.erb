@@ -1,0 +1,12 @@
+<div class= "container">
+  <p>
+    <%= @request.title %>
+  </p>
+  <p>
+    <%= @request.content.html_safe %>
+  </p>
+
+  <p><%=@request.comments.count %> Comentarios</p>
+  <%= render 'comments/comment' %>
+  <%= render 'comments/form'%>
+</div>

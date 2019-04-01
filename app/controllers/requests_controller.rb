@@ -6,6 +6,11 @@ class RequestsController < ApplicationController
     @request = Request.new
   end
 
+  def show 
+    @request= Request.find(params[:id])
+    @comments = @request.comments.all
+  end
+
 
   def create
     @request = Request.new(request_params)
