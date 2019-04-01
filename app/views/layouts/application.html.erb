@@ -23,7 +23,17 @@
           </div>
         </nav>
       <% else %>
-        <%= link_to "Ingresar con google", "/auth/google_oauth2", id: "sign_in" %>
+        <div class="tile is-parent">
+          <article class="tile is-child notification is-info">
+            <p class="title has-text-centered">Antes de ingresar tu requerimiento, por favor accede con tu cuenta</p>
+          </article>
+        </div>
+        <div class= "has-text-centered">
+          <%= link_to "/auth/google_oauth2", id: "sign_in" do %>
+            <i class="fa fa-google fa-5x"></i>
+            <p>Ingresa</p>
+          <% end %>
+        </div>
       <% end %>
     <div>
       
