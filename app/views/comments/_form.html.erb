@@ -1,7 +1,9 @@
 <%= form_for ([@request, @request.comments.build]) do |f|%>
   <p>
-    <%=f.label :content %>
-    <%=f.text_area :content %>
+    
+    <%=f.text_area :content, class:"textarea" %>
   </p>
-  <%= f.submit%>
+  <div class="column is-1 is-offset-11">
+    <%= f.submit "Publicar", class: "button" %>
+  </div>
 <% end %>
