@@ -1,19 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Google Auth Example App</title>
-    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <title>Rankmi Request App</title>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %> 
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div>
       <% if current_user %>
-        Signed in as <strong><%= current_user.name %></strong>!
-        <%= link_to "Sign out", signout_path, id: "sign_out" %>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+          <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-end">
+              <div class="navbar-item">
+                <div class="buttons">
+                  <p>
+                    <strong>Welcome <%= current_user.name %> </strong>
+                  </p>
+                    <%= link_to "Sign out", signout_path, id: "sign_out" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
       <% else %>
-        <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
+        <%= link_to "Ingresar con google", "/auth/google_oauth2", id: "sign_in" %>
       <% end %>
+    <div>
+      
     </div>
     <div>
     <%= yield %>

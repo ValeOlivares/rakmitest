@@ -12,6 +12,9 @@
  *
  *= require_tree .
  *= require_self
+ *= require_trix
  */
 
   @import 'bulma';
+  @import 'font-awesome';
+  @import 'trix';
