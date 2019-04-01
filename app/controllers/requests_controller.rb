@@ -2,8 +2,17 @@
 class RequestsController < ApplicationController
 
   def index 
+
+  if params[:order] == 'votes'
+    @requests= Request.all.order(:cached_votes_up)
+  elsif params[:order] == 'alphabetical'
+    @requests = Request.all.order('title ASC')
+  else
     @requests = Request.all.order(created_at: :desc)
-    @request = Request.new
+
+  end 
+
+  @request = Request.new
   end
 
   def show 

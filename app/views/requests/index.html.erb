@@ -3,37 +3,45 @@
     <%= render 'form' %>
 
     <h1 class="subtitle is-2">Requerimientos</h1>
+
+    <div class="columns order-select">
+      <div class="select ">
+        <%= form_tag({controller: "requests", action: "index"}, method: "get") do %>
+          <%= select_tag :order, options_for_select([["Votos", "votes"], ["Alfabeticamente", "alphabetical"]]), prompt: "Ordenar por ...", onchange: "this.form.submit();", selected: params[:order] %>
+        <% end %>
+      </div>
+    </div>
+
     <hr>
 
     <% @requests.each do |request|%>
-    <%= link_to  request_path(request) do %>
-      <div class="columns">
-        <div class="column is-1">
-          <%= link_to "vote", like_request_path(request), method: :put, class:"button" %>
-          <span class="icon is-medium">
-            <%= request.get_upvotes.size %>
-          </span>
-        </div>
-        <div class="column">
-          <div >
-            <h1 class="subtitle is-4">
-              <%= request.title %>
-            </h1>
-
-            <p>
-              <%= request.content.html_safe %>
-            </p>
+        <div class="columns">
+          <div class="column is-1">
+            <%= link_to "vote", like_request_path(request), method: :put, class:"button" %>
+            <span class="icon is-medium">
+              <%= request.get_upvotes.size %>
+            </span>
+          </div>
+          <div class="column">
+            <%= link_to  request_path(request) do %>
+              <div >
+                <h1 class="subtitle is-4">
+                  <%= request.title %>
+                </h1>
+                <p>
+                  <%= request.content.html_safe %>
+                </p>
+              </div>
+            <% end %>
+          </div>
+          <div class="column is-1">
+            <span class="icon is-medium">
+              <i class="fa fa-comment"> </i>
+              <p><%= request.comments.count %> </p>
+            </span>
           </div>
         </div>
-        <div class="column is-1">
-          <span class="icon is-medium">
-            <i class="fa fa-comment"> </i>
-            <p><%= request.comments.count %> </p>
-          </span>
-        </div>
-      </div>
-    <% end %>
-    <hr>
+      <hr>
     <% end %>
   </div>
 <% end %>
