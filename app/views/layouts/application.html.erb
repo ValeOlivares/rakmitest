@@ -13,10 +13,10 @@
             <div class="navbar-end">
               <div class="navbar-item">
                 <div class="buttons">
-                  <p>
-                    <strong>Welcome <%= current_user.name %> </strong>
+                  <p> 
+                    <strong>Bienvenida <%= current_user.name %>  </strong> 
                   </p>
-                    <%= link_to "Sign out", signout_path, id: "sign_out" %>
+                    <%= link_to " ",  signout_path, id: "sign_out", class: "fa fa-power-off" %>
                 </div>
               </div>
             </div>
