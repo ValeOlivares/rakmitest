@@ -1,0 +1,35 @@
+<div class="container">
+  <%= render 'form' %>
+
+  <h1 class="subtitle is-2">Requerimientos</h1>
+  <hr>
+
+  <% @requests.each do |request|%>
+  <div class="columns">
+    <div class="column is-1">
+      <span class="icon is-medium">
+        <i class="fa fa-plus"></i>
+      </span>
+    </div>
+    <div class="column">
+      <div >
+        <h1 class="subtitle is-4">
+          <%= request.title %>
+        </h1>
+
+        <p>
+          <%= request.content %>
+        </p>
+      </div>
+    </div>
+    <div class="column is-1">
+      <span class="icon is-medium">
+        <i class="fa fa-comment"></i>
+      </span>
+    </div>
+  </div>
+  <hr>
+  <% end %>
+</div>
+
+
