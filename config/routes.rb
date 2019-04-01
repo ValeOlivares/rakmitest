@@ -9,5 +9,5 @@ Rails.application.routes.draw do
     resources :comments
   end
   
-  root to: "home#show"
+  root to: "requests#index"
 end
